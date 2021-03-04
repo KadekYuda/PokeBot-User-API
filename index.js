@@ -3,7 +3,7 @@ const { Pool } = require('pg');
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL || 'postgresql://postgres:silvias15saleens7@localhost:5432/pokebotlogin',
-    ssl: process.env.DATABASE_URL ? true : false
+    ssl: { rejectUnauthorized: false }
 })
 
 const DUPLICATE_ENTRIES_EXISTS = '23505';
