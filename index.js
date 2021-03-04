@@ -1,5 +1,6 @@
 const express = require('express');
 const { Pool } = require('pg');
+const wakeUp = require('./wakeup');
 
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL || 'postgresql://postgres:silvias15saleens7@localhost:5432/pokebotlogin',
@@ -53,4 +54,5 @@ app.get('/name', async (req, res) => {
 
 app.listen(PORT, (req, res) => {
     console.log(`Succesfully running in port ${PORT}`);
+    wakeUp('https://agile-taiga-31823.herokuapp.com/');
 });
